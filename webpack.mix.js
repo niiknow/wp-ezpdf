@@ -105,6 +105,11 @@ if (mix.inProduction()) {
   mix.sourceMaps()
 }
 
+
+mix.copy('node_modules/pdfjs-dist/build/pdf.worker.js', 'public/js/pdf.worker.js')
+mix.copy('node_modules/pdfjs-dist/build/pdf.worker.js.map', 'public/js/pdf.worker.js.map')
+mix.copy('node_modules/pdfjs-dist/build/pdf.worker.min.js', 'public/js/pdf.worker.min.js')
+
 mix.after(() => {
   let manifest = JSON.parse(
     fs.readFileSync('./public/mix-manifest.json').toString()

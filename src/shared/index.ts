@@ -5,6 +5,7 @@ import installI18n from './i18n'
 import VueAxios from 'vue-axios'
 import swal from 'sweetalert2'
 
+// https://github.com/soukoku/pdfjs-vue/blob/main/src/PdfDocument.vue
 export default (app: App, configName: string) => {
   installI18n(app)
   const win: any = window
@@ -19,5 +20,6 @@ export default (app: App, configName: string) => {
   app.config.globalProperties.$swal = swal
   app.provide('win', win)
   app.provide('pluginConfig', win[configName] )
+  app.provide('pdfjs', pdfjs )
   app.use(VueAxios, win.$appConfig.axios)
 }

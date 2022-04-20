@@ -61,6 +61,7 @@
     "laravel-mix-tailwind": "^0.1.2",
     "lodash": "^4.17.21",
     "node-wp-i18n": "^1.2.6",
+    "pdfjs-dist": "^2.13.216",
     "postcss": "^8.4.12",
     "postcss-import": "^14.1.0",
     "postcss-loader": "^6.2.1",
