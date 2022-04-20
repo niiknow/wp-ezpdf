@@ -1,0 +1,42 @@
+{
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0",
+  "require": {
+    "php": "^7.4|^8.0"
+  },
+  "require-dev": {
+    "brain/monkey": "^2.6",
+    "phpunit/phpunit": "^9.5"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "PluginSpace\\": "includes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\phpunit\\": "tests/phpunit/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "phpcs": "phpcs",
+    "phpcs:fix": "phpcbf -w",
+    "app:package": [
+      "npm run production",
+      "composer update",
+      "composer install --no-dev --optimize-autoloader",
+      "npm run make-archive",
+      "composer update"
+    ],
+    "test": [
+      "phpunit tests/*.php"
+    ]
+  }
+}
